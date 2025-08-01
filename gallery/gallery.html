@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NA_SERVICE - Transport Professionnel et SOS Remorquage</title>
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Loader Styles */
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            flex-direction: column;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .truck-container {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+        }
+
+        .truck-icon {
+            font-size: 80px;
+            color: #3d0015;
+            animation: bounce 1s infinite alternate;
+        }
+
+        .loader-text {
+            font-size: 1.2rem;
+            color: #3d0015;
+            font-weight: 500;
+            margin-top: 15px;
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <span class="logo-text">Remorquage<span class="highlight">Nasri</span></span>
+                </a>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="../index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="/services/services.html" class="nav-link">Services</a></li>
+                    <li><a href="../index.html" class="nav-link">À Propos</a></li>
+                    <li><a href="/gallery/gallery.html" class="nav-link active">Gallerie</a></li>
+                    <li><a href="../index.html" class="nav-link">Témoignages</a></li>
+                    <li><a href="../index.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <span class="logo-text">Remorquage<span class="highlight">Nasri</span></span>
+            <button class="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-nav-list">
+            <li><a href="../index.html" class="mobile-nav-link">Accueil</a></li>
+            <li><a href="../services/services.html" class="mobile-nav-link">Services</a></li>
+            <li><a href="../index.html" class="mobile-nav-link">À Propos</a></li>
+            <li><a href="gallery.html" class="mobile-nav-link active">Gallerie</a></li>
+            <li><a href="../index.html" class="mobile-nav-link">Témoignages</a></li>
+            <li><a href="../index.html" class="mobile-nav-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <span class="hero-subtitle animate-subtitle">Service Rapide & Fiable 24/7</span>
+            <h2 class="animate-title">
+                <span class="title-line">Solutions Professionnelles</span>
+                <span class="title-line">de Transport et SOS Remorquage</span>
+            </h2>
+            <p class="animate-text">RemorquageNasri vous accompagne sur tout le territoire avec des services de transport spécialisés et d'assistance dépannage.</p>
+            <div class="hero-buttons animate-buttons">
+                <a href="#" class="btn btn-primary">Nos Services</a>
+                <a href="#" class="btn btn-outline">Urgence 24/7</a>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* Animation Styles */
+        .animate-subtitle {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-title .title-line {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .animate-title .title-line:first-child {
+            animation: fadeInUp 0.8s ease-out 0.3s forwards;
+        }
+
+        .animate-title .title-line:last-child {
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+
+        .animate-text {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out 0.9s forwards;
+        }
+
+        .animate-buttons {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 1.2s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Hero Section Styling */
+        .hero-section {
+            position: relative;
+            padding: 120px 0;
+            background: linear-gradient(rgba(61, 0, 21, 0.9), rgba(61, 0, 21, 0.9)), 
+                        url('../Images/hero-bg.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-subtitle {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #ffc107;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .hero-section h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: #ffc107;
+            color: #000;
+            border: 2px solid #ffc107;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-section p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+
+    <!-- Main Content -->
+    <main class="container">
+        <section class="gallery-section">
+            <div class="section-header">
+                <h2 class="section-title">Notre Galerie Photo</h2>
+                <p class="section-subtitle">Découvrez notre flotte et nos services de transport spécialisés à travers notre galerie d'images professionnelles.</p>
+            </div>
+
+            <div class="gallery-container">
+                <!-- Gallery Layout Toggle -->
+               
+                <!-- Desktop Filters -->
+                <div class="filter-buttons desktop-filters">
+                    <button class="filter-btn active" data-category="all">Tous les Services</button>
+                    <button class="filter-btn" data-category="lourd">Véhicules Lourds</button>
+                    <button class="filter-btn" data-category="sos">SOS Remorquage</button>
+                    <button class="filter-btn" data-category="agriculture">Matériel Agricole</button>
+                    <button class="filter-btn" data-category="conteneur">Conteneurs</button>
+                    <button class="filter-btn" data-category="retractable">Véhicules Rétractables</button>
+                </div>
+
+                <!-- Mobile Filter Dropdown -->
+                <div class="mobile-filter">
+                    <button class="mobile-filter-btn">
+                        <span>Filtrer par: Tous les Services</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="mobileFilterDropdown" class="mobile-filter-dropdown">
+                        <button class="filter-btn mobile-btn active" data-category="all">Tous les Services</button>
+                        <button class="filter-btn mobile-btn" data-category="lourd">Véhicules Lourds</button>
+                        <button class="filter-btn mobile-btn" data-category="sos">SOS Remorquage</button>
+                        <button class="filter-btn mobile-btn" data-category="agriculture">Matériel Agricole</button>
+                        <button class="filter-btn mobile-btn" data-category="conteneur">Conteneurs</button>
+                        <button class="filter-btn mobile-btn" data-category="retractable">Véhicules Rétractables</button>
+                    </div>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div id="galleryGrid" class="gallery-grid">
+                    <!-- Véhicules Lourds -->
+                    <div class="gallery-item" data-category="lourd">
+                        <img src="../Images/lourd/lourd1.jpg" alt="Transport de véhicule lourd">
+                        <div class="gallery-caption">Transport de véhicule lourd</div>
+                    </div>
+                    <div class="gallery-item" data-category="lourd">
+                        <img src="../Images/lourd/lourd2.jpg" alt="Transport de véhicule lourd">
+                        <div class="gallery-caption">Transport de véhicule lourd</div>
+                    </div>
+                    <div class="gallery-item" data-category="lourd">
+                        <img src="../Images/lourd/lourd3.jpg" alt="Transport de véhicule lourd">
+                        <div class="gallery-caption">Transport de véhicule lourd</div>
+                    </div>
+                    <div class="gallery-item" data-category="lourd">
+                        <img src="../Images/lourd/lourd4.jpg" alt="Transport de véhicule lourd">
+                        <div class="gallery-caption">Transport de véhicule lourd</div>
+                    </div>
+                    <div class="gallery-item" data-category="lourd">
+                        <img src="../Images/lourd/lourd5.jpg" alt="Transport de véhicule lourd">
+                        <div class="gallery-caption">Transport de véhicule lourd</div>
+                    </div>
+
+                    <!-- SOS Remorquage -->
+                    <div class="gallery-item" data-category="sos">
+                        <img src="../Images/SOS/V1.jpg" alt="Service de remorquage d'urgence">
+                        <div class="gallery-caption">Service de remorquage d'urgence</div>
+                    </div>
+                    <div class="gallery-item" data-category="sos">
+                        <img src="../Images/SOS/V2.jpg" alt="Service de remorquage d'urgence">
+                        <div class="gallery-caption">Service de remorquage d'urgence</div>
+                    </div>
+                    <div class="gallery-item" data-category="sos">
+                        <img src="../Images/SOS/V3.jpg" alt="Service de remorquage d'urgence">
+                        <div class="gallery-caption">Service de remorquage d'urgence</div>
+                    </div>
+                    <div class="gallery-item" data-category="sos">
+                        <img src="../Images/SOS/V4.jpg" alt="Service de remorquage d'urgence">
+                        <div class="gallery-caption">Service de remorquage d'urgence</div>
+                    </div>
+                    <div class="gallery-item" data-category="sos">
+                        <img src="../Images/SOS/V5.jpg" alt="Service de remorquage d'urgence">
+                        <div class="gallery-caption">Service de remorquage d'urgence</div>
+                    </div>
+                    <div class="gallery-item" data-category="sos">
+                        <img src="../Images/SOS/V6.jpg" alt="Service de remorquage d'urgence">
+                        <div class="gallery-caption">Service de remorquage d'urgence</div>
+                    </div>
+                    <div class="gallery-item" data-category="sos">
+                        <img src="../Images/SOS/V7.jpg" alt="Service de remorquage d'urgence">
+                        <div class="gallery-caption">Service de remorquage d'urgence</div>
+                    </div>
+                    <div class="gallery-item" data-category="sos">
+                        <img src="../Images/SOS/V8.jpg" alt="Service de remorquage d'urgence">
+                        <div class="gallery-caption">Service de remorquage d'urgence</div>
+                    </div>
+                    <div class="gallery-item" data-category="sos">
+                        <img src="../Images/SOS/V9.jpg" alt="Service de remorquage d'urgence">
+                        <div class="gallery-caption">Service de remorquage d'urgence</div>
+                    </div>
+                    <div class="gallery-item" data-category="sos">
+                        <img src="../Images/SOS/V10.jpg" alt="Service de remorquage d'urgence">
+                        <div class="gallery-caption">Service de remorquage d'urgence</div>
+                    </div>
+                    <div class="gallery-item" data-category="sos">
+                        <img src="../Images/SOS/V11.jpg" alt="Service de remorquage d'urgence">
+                        <div class="gallery-caption">Service de remorquage d'urgence</div>
+                    </div>
+                    <div class="gallery-item" data-category="sos">
+                        <img src="../Images/SOS/V12.jpg" alt="Service de remorquage d'urgence">
+                        <div class="gallery-caption">Service de remorquage d'urgence</div>
+                    </div>
+
+                    <!-- Matériel Agricole -->
+                    <div class="gallery-item" data-category="agriculture">
+                        <img src="../Images/Agriculture/ag1.jpg" alt="Transport de matériel agricole">
+                        <div class="gallery-caption">Transport de matériel agricole</div>
+                    </div>
+                    <div class="gallery-item" data-category="agriculture">
+                        <img src="../Images/Agriculture/ag2.jpg" alt="Transport de matériel agricole">
+                        <div class="gallery-caption">Transport de matériel agricole</div>
+                    </div>
+                    <div class="gallery-item" data-category="agriculture">
+                        <img src="../Images/Agriculture/ag3.jpg" alt="Transport de matériel agricole">
+                        <div class="gallery-caption">Transport de matériel agricole</div>
+                    </div>
+                    <div class="gallery-item" data-category="agriculture">
+                        <img src="../Images/Agriculture/ag4.jpg" alt="Transport de matériel agricole">
+                        <div class="gallery-caption">Transport de matériel agricole</div>
+                    </div>
+                    <div class="gallery-item" data-category="agriculture">
+                        <img src="../Images/Agriculture/ag5.jpg" alt="Transport de matériel agricole">
+                        <div class="gallery-caption">Transport de matériel agricole</div>
+                    </div>
+                    <div class="gallery-item" data-category="agriculture">
+                        <img src="../Images/Agriculture/ag6.jpg" alt="Transport de matériel agricole">
+                        <div class="gallery-caption">Transport de matériel agricole</div>
+                    </div>
+
+                    <!-- Conteneurs -->
+                    <div class="gallery-item" data-category="conteneur">
+                        <img src="../Images/conteneur/cont.jpg" alt="Transport de conteneur">
+                        <div class="gallery-caption">Transport de conteneur</div>
+                    </div>
+                    <div class="gallery-item" data-category="conteneur">
+                        <img src="../Images/conteneur/386471269_6884818368262296_7457005664657543777_n.jpg" alt="Transport de conteneur">
+                        <div class="gallery-caption">Transport de conteneur</div>
+                    </div>
+
+                    <!-- Véhicules Rétractables -->
+                    <div class="gallery-item" data-category="retractable">
+                        <img src="../Images/retractable/rect.jpg" alt="Véhicule rétractable">
+                        <div class="gallery-caption">Véhicule rétractable</div>
+                    </div>
+                </div>
+
+                <!-- Masonry Grid -->
+                <div id="masonryGrid" class="masonry-grid" style="display: none;">
+                    <!-- Masonry items will be inserted here by JavaScript -->
+                </div>
+
+                <!-- Empty State -->
+                <div id="emptyState" class="empty-state">
+                    <i class="fas fa-search fa-3x"></i>
+                    <h3>Aucun résultat trouvé</h3>
+                    <p>Aucun service ne correspond à votre sélection.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Besoin d'un service de transport ou d'assistance ?</h2>
+                <p>Nous sommes disponibles 24/7 pour répondre à vos besoins urgents ou planifiés.</p>
+                <a href="tel:+33612345678" class="btn btn-light">
+                    <i class="fas fa-phone-alt"></i>
+                    Contactez-nous maintenant
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="imageLightbox">
+        <div class="lightbox-content">
+            <img src="/placeholder.svg" alt="" class="lightbox-image" id="lightboxImage">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+        <div class="lightbox-nav">
+            <div class="lightbox-prev" id="lightboxPrev">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="lightbox-next" id="lightboxNext">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+        <div class="lightbox-close" id="lightboxClose">
+            <i class="fas fa-times"></i>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fas fa-truck-monster"></i>
+                </div>
+                <div class="stat-number">250+</div>
+                <div class="stat-title">Véhicules transportés par mois</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="stat-number">24/7</div>
+                <div class="stat-title">Service d'assistance disponible</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <div class="stat-number">100%</div>
+                <div class="stat-title">Couverture nationale</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-number">15+</div>
+                <div class="stat-title">Années d'expérience</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>NA_<span>SERVICE</span></h3>
+                <p>Spécialiste du transport et du remorquage de véhicules, matériel agricole, conteneurs et plus encore. Notre expertise s'étend à l'ensemble du territoire français avec un service disponible 24/7.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Grand Tunis, Tunisie</p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+21656727256">+216 56727256</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:remorquagenasri@outlook.fr">remorquagenasri@outlook.fr</a></p>
+                <p><i class="fas fa-clock"></i> Disponible 24/7 pour les urgences</p>
+            </div>
+            <div class="footer-links">
+                <h4>Liens Rapides</h4>
+                <ul>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">Nos Services</a></li>
+                    <li><a href="#">À Propos</a></li>
+                    <li><a href="#">Tarifs</a></li>
+                    <li><a href="#">Témoignages</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Suivez-nous</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                </div>
+                <div class="certification">
+                    <p>Entreprise certifiée</p>
+                    <div class="cert-icons">
+                        <img src="https://placehold.co/80x40/e63946/FFFFFF?text=CERT" alt="Certification de transport">
+                        <img src="https://placehold.co/80x40/1d3557/FFFFFF?text=PRO" alt="Certification professionnelle">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 NA_SERVICE. Tous droits réservés. | <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a></p>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Lightbox Script -->
+    <script src="gallery.js"></script>
+    
+
+    <script>
+        // Show loader when navigating away
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click event to all links except anchors, mailto, external, or new tab links
+            document.querySelectorAll('a[href^="http"], a[href^="/"], a[href^="."]')
+                .forEach(link => {
+                    if (link.target === '_blank' || 
+                        link.href.startsWith('mailto:') || 
+                        link.href.startsWith('tel:') ||
+                        link.getAttribute('href').startsWith('#')) {
+                        return;
+                    }
+                    
+                    link.addEventListener('click', function(e) {
+                        // Only show loader for links that navigate away from the current page
+                        if (this.href && this.href !== window.location.href) {
+                            document.querySelector('.loader-container').style.display = 'flex';
+                        }
+                    });
+                });
+
+            // Hide loader when page is fully loaded
+            window.addEventListener('load', function() {
+                document.querySelector('.loader-container').style.display = 'none';
+            });
+
+            // Add animation class to hero section when in viewport
+            // Intersection Observer for hero section
+            const heroSection = document.querySelector('.hero-section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(heroSection);
+            
+            // Add hover effect to buttons
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                    this.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+            
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileMenuClose = document.querySelector('.mobile-menu-close');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-nav-link');
+            let overlay = null;
+            
+            // Function to open mobile menu
+            function openMobileMenu() {
+                mobileMenu.classList.add('active');
+                mobileMenuBtn.classList.add('active');
+                
+                // Create or show overlay
+                overlay = document.querySelector('.mobile-menu-overlay');
+                if (!overlay) {
+                    overlay = document.createElement('div');
+                    overlay.className = 'mobile-menu-overlay';
+                    document.body.appendChild(overlay);
+                    
+                    // Close menu when clicking overlay
+                    overlay.addEventListener('click', closeMobileMenu);
+                }
+                overlay.classList.add('active');
+                
+                // Prevent body scroll
+                document.body.style.overflow = 'hidden';
+            }
+            
+            // Function to close mobile menu
+            function closeMobileMenu() {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+                
+                // Hide overlay
+                if (overlay) {
+                    overlay.classList.remove('active');
+                }
+                
+                // Restore body scroll
+                document.body.style.overflow = '';
+            }
+            
+            // Toggle mobile menu when clicking menu button
+            mobileMenuBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (mobileMenu.classList.contains('active')) {
+                    closeMobileMenu();
+                } else {
+                    openMobileMenu();
+                }
+            });
+            
+            // Close mobile menu when clicking close button
+            mobileMenuClose.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeMobileMenu();
+            });
+            
+            // Close mobile menu when clicking on a link
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+            
+            // Close menu when pressing Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            });
+            
+            // Add scrolled class to header on scroll
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Initialize header state
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
