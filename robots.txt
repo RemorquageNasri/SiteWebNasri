@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://remorquagenasri.tn/sitemap.xml
+Sitemap: https://remorquagenasri.com/sitemap.xml
 
 # Disallow specific files if needed
 # Disallow: /admin/
