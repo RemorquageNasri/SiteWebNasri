@@ -101,6 +101,7 @@
   cursor: pointer;
   padding: 0;
   z-index: 1001;
+  position: relative;
 }
 
 .mobile-menu-btn span {
@@ -115,16 +116,16 @@
 /* Mobile Menu */
 .mobile-menu {
   position: fixed;
-  top: 0;
-  left: -100%;
-  width: 80%;
-  max-width: 280px;
-  height: 100vh;
+  top: 75px; /* Hauteur de la navbar */
+  left: -75%;
+  width: 75%;
+  max-width: 75%;
+  height: calc(100vh - 75px); /* Hauteur totale moins la hauteur de la navbar */
   background-color: #0056b3;
   z-index: 1000;
   transition: left 0.4s ease;
   overflow-y: auto;
-  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .mobile-menu.active {
@@ -171,8 +172,9 @@
 .mobile-nav-link {
   display: block;
   padding: 15px 25px;
-  font-size: 1rem;
-  color: white;
+  font-size: 1.2rem;  /* Taille de police de 1.2rem */
+  font-weight: 500;   /* Poids de la police medium (500) */
+  color: var(--light-color);  /* Utilisation de la variable CSS pour la couleur */
   text-decoration: none;
   transition: all 0.3s ease;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -182,7 +184,7 @@
 .mobile-nav-link.active {
   background-color: rgba(255, 255, 255, 0.1);
   padding-left: 30px;
-  color: white;
+  color: var(--light-color);  /* Utilisation de la variable CSS pour la couleur */
 }
 
 /* Overlay */
@@ -1165,6 +1167,153 @@
     font-size: 1rem;
     color: var(--gray-color);
     font-weight: 500;
+  }
+
+  /* ===== FOOTER STYLES ===== */
+  .footer {
+    background-color: #333333;
+    color: #c2c2c2;
+    padding: 40px 0 20px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+
+  .footer-logo a {
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+
+  .logo-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .footer .highlight {
+    color: #ffc107;
+  }
+
+  .footer p {
+    margin-bottom: 15px;
+    color: #c2c2c2;
+  }
+
+  .footer h3 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+  }
+
+  .footer h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #ffc107;
+  }
+
+  .footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer ul li {
+    margin-bottom: 10px;
+  }
+
+  .footer ul li a {
+    color: #c2c2c2;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .footer ul li a:hover {
+    color: #ffc107;
+    padding-left: 5px;
+  }
+
+  .footer-contact i {
+    color: #ffc107;
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+  }
+
+  .footer-contact a {
+    color: #c2c2c2;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .footer-contact a:hover {
+    color: #ffc107;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: #ffc107;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .footer-social a:hover {
+    background-color: #ffc107;
+    color: #333333;
+    transform: translateY(-3px);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .slogan {
+    font-family: 'Freestyle Script', cursive;
+    font-size: 1.5rem !important;
+    color: #ffc107 !important;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .footer {
+      padding: 40px 0 20px;
+    }
   }
   
   /* Footer Styles */

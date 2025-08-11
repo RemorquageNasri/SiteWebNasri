@@ -8,52 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* Loader Styles */
-        .loader-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.9);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            flex-direction: column;
-        }
-
-        .loader-content {
-            text-align: center;
-        }
-
-        .truck-container {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 20px;
-        }
-
-        .truck-icon {
-            font-size: 80px;
-            color: #3d0015;
-            animation: bounce 1s infinite alternate;
-        }
-
-        .loader-text {
-            font-size: 1.2rem;
-            color: #3d0015;
-            font-weight: 500;
-            margin-top: 15px;
-        }
-
-        @keyframes bounce {
-            from { transform: translateY(0); }
-            to { transform: translateY(-10px); }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Freestyle+Script&display=swap" rel="stylesheet">
+    
 </head>
 <body>
     <!-- Header -->
@@ -66,12 +22,12 @@
             </div>
             <nav class="nav">
                 <ul class="nav-list">
-                    <li><a href="../index.html" class="nav-link">Accueil</a></li>
-                    <li><a href="/services/services.html" class="nav-link">Services</a></li>
-                    <li><a href="../index.html" class="nav-link">À Propos</a></li>
-                    <li><a href="/gallery/gallery.html" class="nav-link active">Gallerie</a></li>
-                    <li><a href="../index.html" class="nav-link">Témoignages</a></li>
-                    <li><a href="../index.html" class="nav-link">Contact</a></li>
+                    <li><a href="../index.html" class="nav-link active">Accueil</a></li>
+                    <li><a href="../services/services.html" class="nav-link">Services</a></li>
+                    <li><a href="../index.html#about" class="nav-link">À Propos</a></li>
+                    <li><a href="../gallery/gallery.html" class="nav-link">Gallerie</a></li>  
+                    <li><a href="../faq/faq_improved.html" class="nav-link active">FAQ</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
             <div class="mobile-menu-btn">
@@ -84,19 +40,13 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu">
-        <div class="mobile-menu-header">
-            <span class="logo-text">Remorquage<span class="highlight">Nasri</span></span>
-            <button class="mobile-menu-close">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
         <ul class="mobile-nav-list">
             <li><a href="../index.html" class="mobile-nav-link">Accueil</a></li>
             <li><a href="../services/services.html" class="mobile-nav-link">Services</a></li>
-            <li><a href="../index.html" class="mobile-nav-link">À Propos</a></li>
-            <li><a href="gallery.html" class="mobile-nav-link active">Gallerie</a></li>
-            <li><a href="../index.html" class="mobile-nav-link">Témoignages</a></li>
-            <li><a href="../index.html" class="mobile-nav-link">Contact</a></li>
+            <li><a href="../index.html#about" class="mobile-nav-link">À Propos</a></li>
+            <li><a href="../gallery/gallery.html" class="mobile-nav-link">Gallerie</a></li>
+            <li><a href="../faq/faq_improved.html" class="mobile-nav-link active">FAQ</a></li>
+            <li><a href="../index.html#contact" class="mobile-nav-link">Contact</a></li>
         </ul>
     </div>
 
@@ -109,6 +59,43 @@
                 <span class="title-line">de Transport et SOS Remorquage</span>
             </h2>
             <p class="animate-text">RemorquageNasri vous accompagne sur tout le territoire avec des services de transport spécialisés et d'assistance dépannage.</p>
+
+    <style>
+        .word-animate {
+            opacity: 0;
+            display: inline-block;
+            transform: translateY(20px);
+            animation: wordFadeInUp 0.5s forwards;
+        }
+        @keyframes wordFadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function animateWords(selector, delayStep) {
+            var el = document.querySelector(selector);
+            if (!el) return;
+            var text = el.textContent;
+            var words = text.split(' ');
+            el.innerHTML = '';
+            words.forEach(function(word, i) {
+                var span = document.createElement('span');
+                span.textContent = word + ' ';
+                span.className = 'word-animate';
+                span.style.animationDelay = (i * delayStep) + 's';
+                el.appendChild(span);
+            });
+        }
+        animateWords('.hero-subtitle', 0.12);
+        animateWords('.title-line:first-child', 0.13);
+        animateWords('.title-line:last-child', 0.13);
+        animateWords('.hero-section p', 0.10);
+    });
+    </script>
             <div class="hero-buttons animate-buttons">
                 <a href="#" class="btn btn-primary">Nos Services</a>
                 <a href="#" class="btn btn-outline">Urgence 24/7</a>
@@ -491,53 +478,55 @@
     </section>
 
     <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-info">
-                <h3>NA_<span>SERVICE</span></h3>
-                <p>Spécialiste du transport et du remorquage de véhicules, matériel agricole, conteneurs et plus encore. Notre expertise s'étend à l'ensemble du territoire français avec un service disponible 24/7.</p>
-            </div>
-            <div class="footer-contact">
-                <h4>Contact</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Grand Tunis, Tunisie</p>
-                <p><i class="fas fa-phone"></i> <a href="tel:+21656727256">+216 56727256</a></p>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:remorquagenasri@outlook.fr">remorquagenasri@outlook.fr</a></p>
-                <p><i class="fas fa-clock"></i> Disponible 24/7 pour les urgences</p>
-            </div>
-            <div class="footer-links">
-                <h4>Liens Rapides</h4>
-                <ul>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Nos Services</a></li>
-                    <li><a href="#">À Propos</a></li>
-                    <li><a href="#">Tarifs</a></li>
-                    <li><a href="#">Témoignages</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-social">
-                <h4>Suivez-nous</h4>
-                <div class="social-icons">
-                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="../index.html">
+                        <span class="logo-text">Nasri<span class="highlight">Remorquage</span></span>
+                    </a>
+                    <p>Services de remorquage professionnels disponibles 24/7 dans tout le Grand Tunis et transport vers toutes les régions de la Tunisie.</p>
                 </div>
-                <div class="certification">
-                    <p>Entreprise certifiée</p>
-                    <div class="cert-icons">
-                        <img src="https://placehold.co/80x40/e63946/FFFFFF?text=CERT" alt="Certification de transport">
-                        <img src="https://placehold.co/80x40/1d3557/FFFFFF?text=PRO" alt="Certification professionnelle">
+                <div class="footer-links">
+                    <h3>Liens Rapides</h3>
+                    <ul>
+                        <li><a href="../index.html">Accueil</a></li>
+                        <li><a href="../index.html#services">Services</a></li>
+                        <li><a href="../index.html#about">À Propos</a></li>
+                        <li><a href="../index.html#why-us">Pourquoi Nous</a></li>
+                        <li><a href="../index.html#testimonials">Témoignages</a></li>
+                        <li><a href="../services/services.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Nos Services</h3>
+                    <ul>
+                        <li>Transport de Véhicules Volumineux</li>
+                        <li>Remorquage Complet</li>
+                        <li>Transport de Matériel Agricole</li>
+                        <li>Transport de Conteneurs</li>
+                        <li>Transport de Véhicules Rétractables</li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Grand Tunis, Tunisie</p>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:+21656727256">+216 56727256</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:remorquagenasri@outlook.fr">remorquagenasri@outlook.fr</a></p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/profile.php?id=61553466902239" class="social-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/21656727256" class="social-icon" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2023 NA_SERVICE. Tous droits réservés. | <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a></p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 RemorquageNasri. Tous droits réservés.</p>
+                <p class="slogan">code by 3b2li || decode if you can.</p> 
+            </div>
         </div>
     </footer>
 
-    <a href="#" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-
+    
     <!-- Lightbox Script -->
     <script src="gallery.js"></script>
     
